@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 //import the components we will need
 import { AnimalCard } from './AnimalCard';
 import { getAllAnimals, deleteAnimal } from '../../modules/AnimalManager';
+import { useHistory } from 'react-router-dom'
 
 export const AnimalList = () => {
   // The initial state is an empty array
   const [animals, setAnimals] = useState([]);
+  const history = useHistory();
 
+  
   const handleDeleteAnimal = id => {
     deleteAnimal(id)
     .then(() => getAllAnimals().then(setAnimals));
@@ -27,12 +30,21 @@ export const AnimalList = () => {
 
   // Finally we use .map() to "loop over" the animals array to show a list of animal cards
   return (
-    <div className="container-cards">
-      {animals.map(animal =>
-        <AnimalCard
-          key={animal.id}
-          animal={animal}
-          handleDeleteAnimal={handleDeleteAnimal} />)}
-    </div>
+    <>
+      <section className="section-content">
+        <button type="button"
+            className="btn"
+            onClick={() => {history.push("/animals/create")}}>
+            Admit Animal
+        </button>
+      </section>
+      <div className="container-cards">
+        {animals.map(animal =>
+          <AnimalCard
+            key={animal.id}
+            animal={animal}
+            handleDeleteAnimal={handleDeleteAnimal} />)}
+      </div>
+    </>
   );
 };
