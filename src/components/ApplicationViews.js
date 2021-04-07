@@ -5,6 +5,8 @@ import { AnimalList } from "./animal/AnimalList"
 import { LocationList } from "./location/LocationList"
 import { EmployeeList } from "./employee/EmployeeList"
 import { CustomerList } from "./customer/CustomerList"
+import { AnimalDetail } from "./animal/AnimalDetail"
+import { LocationDetail } from "./location/LocationDetail"
 
 export const ApplicationViews = () => {
     return (
@@ -15,12 +17,20 @@ export const ApplicationViews = () => {
             </Route>
 
             {/* Render the animal list when http://localhost:3000/animals */}
-            <Route path="/animals">
+            <Route exact path="/animals">
               <AnimalList />
             </Route>
+            
+            <Route path="/animals/:animalId(\d+)">
+                <AnimalDetail />
+            </Route>
 
-            <Route path="/locations">
+            <Route exact path="/locations">
                 <LocationList />
+            </Route>
+
+            <Route path="/locations/:locationId(\d+)">
+                <LocationDetail />
             </Route>
 
             <Route path="/customers">
