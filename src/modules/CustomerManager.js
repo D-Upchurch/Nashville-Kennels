@@ -7,7 +7,7 @@ export const getAllCustomers = () => {
 
 export const getCustomerById = (id) => {
   //be sure your customers have good data and related to a location and customer
-  return fetch(`${remoteURL}/customers/${id}?_expand=location&_expand=animal`)
+  return fetch(`${remoteURL}/customers/${id}`)
     .then(res => res.json())
 }
 
@@ -25,4 +25,14 @@ export const addCustomer = (newCustomer) => {
     },
     body: JSON.stringify(newCustomer)
   }).then(response => response.json())
+}
+
+export const updateCustomer = (editedCustomer) => {
+  return fetch(`${remoteURL}/customers/${editedCustomer.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(editedCustomer)
+  }).then(data => data.json());
 }
