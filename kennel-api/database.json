@@ -4,7 +4,7 @@
       "id": 2,
       "name": "Decker",
       "breed": "German Shepherd",
-      "locationId": 2,
+      "locationId": 1,
       "customerId": 2
     },
     {
@@ -15,11 +15,11 @@
       "customerId": 1
     },
     {
-      "name": "Hagrid",
+      "id": 4,
+      "name": "Jett",
       "breed": "Husky",
       "locationId": 1,
-      "customerId": 2,
-      "id": 4
+      "customerId": 2
     }
   ],
   "customers": [
@@ -28,6 +28,7 @@
       "name": "Hannah Hall",
       "address": "7002 Chestnut Ct",
       "phoneNumber": 9999999,
+      "email": "hhall@edit.com",
       "locationId": 1
     },
     {
@@ -35,14 +36,32 @@
       "name": "Sherlock Holmes",
       "address": "221B Baker St",
       "phoneNumber": 9999998,
+      "email": "sholmes@test.com",
       "locationId": 2
     },
     {
       "name": "Dakota",
       "address": "111 Main Street",
       "phoneNumber": "9994445555",
+      "email": "dakota@test.com",
       "locationId": 2,
       "id": 3
+    },
+    {
+      "id": 4,
+      "name": "Bob Bob",
+      "address": "111 Bob Street",
+      "phoneNumber": "5558888888",
+      "email": "bob@test.com",
+      "locationId": 4
+    },
+    {
+      "id": 5,
+      "name": "John Johns",
+      "address": "111 John Street",
+      "phoneNumber": "9797786546",
+      "email": "John@test.com",
+      "locationId": 1
     }
   ],
   "employees": [
@@ -74,9 +93,9 @@
       "address": "209 Emory Drive"
     },
     {
+      "id": 3,
       "name": "Nashville West",
-      "address": "1000 Main Street",
-      "id": 3
+      "address": "1000 Test Street"
     },
     {
       "name": "Nashville East",

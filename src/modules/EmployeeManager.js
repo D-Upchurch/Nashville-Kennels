@@ -7,7 +7,7 @@ export const getAllEmployees = () => {
 
 export const getEmployeeById = (id) => {
   //be sure your employees have good data and related to a location and customer
- return fetch(`${remoteURL}/employees/${id}?_expand=location`)
+ return fetch(`${remoteURL}/employees/${id}`)
   .then(res => res.json())
 }
 
@@ -25,4 +25,14 @@ export const addEmployee = (newEmployee) => {
     },
     body: JSON.stringify(newEmployee)
   }).then(response => response.json())
+}
+
+export const updateEmployee = (editedEmployee) => {
+  return fetch(`${remoteURL}/employees/${editedEmployee.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(editedEmployee)
+  }).then(data => data.json());
 }
