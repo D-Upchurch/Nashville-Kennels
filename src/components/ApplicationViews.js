@@ -17,82 +17,81 @@ import { AnimalEditForm } from './animal/AnimalEditForm';
 import { CustomerEditForm } from './customer/CustomerEditForm';
 import { EmployeeEditForm } from './employee/EmployeeEditForm';
 import { LocationEditForm } from './location/LocationEditForm';
+import { useState } from 'react';
 
-
-export const ApplicationViews = () => {
-    const isAuthenticated = () => sessionStorage.getItem("kennel_customer") !== null;
+export const ApplicationViews = ({isAuthenticated, setAuthUser}) => {
+    
     return (
         <>
             {/* Render the location list when http://localhost:3000/ */}
             <Route exact path="/">
-                <Home />
+                {isAuthenticated ? <Home /> : <Redirect to="/login" />}
+                
             </Route>
 
             <Route path="/login">
-                <Login />
+                <Login setAuthUser={setAuthUser} />
             </Route>
 
             <Route path="/register">
-                <Register />
+                <Register setAuthUser={setAuthUser} />
             </Route>
 
             {/* Render the animal list when http://localhost:3000/animals */}
-            <Route exact path="/animals">
-                {(isAuthenticated()) ?
-                    <AnimalList /> : <Redirect to="/login" />
-                }
+            <Route exact path="/animals">   
+            {isAuthenticated ? <AnimalList /> : <Redirect to="/login" />}
             </Route>
 
             <Route path="/animals/:animalId(\d+)/edit">
-                <AnimalEditForm />
+                {isAuthenticated ? <AnimalEditForm /> : <Redirect to="/login" />}
             </Route>
 
             <Route exact path="/animals/:animalId(\d+)">
-                <AnimalDetail />
+                {isAuthenticated ? <AnimalDetail /> : <Redirect to="/login" />}
             </Route>
 
             <Route path="/animals/create">
-                <AnimalForm />
+                {isAuthenticated ? <AnimalForm /> : <Redirect to="/login" />}
             </Route>
 
             <Route exact path="/locations">
-                <LocationList />
+                <LocationList setAuthUser={setAuthUser} isAuthenticated={isAuthenticated} />
             </Route>
 
             <Route exact path="/locations/:locationId(\d+)">
-                <LocationDetail />
+                {isAuthenticated ? <LocationDetail /> : <Redirect to="/login" />}
             </Route>
 
             <Route path="/locations/:locationId(\d+)/edit">
-                <LocationEditForm />
+                {isAuthenticated ? <LocationEditForm />  : <Redirect to="/login" />}
             </Route>
 
             <Route path="/locations/create">
-                <LocationForm />
+                {isAuthenticated ? <LocationForm /> : <Redirect to="/login" />}
             </Route>
 
             <Route exact path="/customers">
-                <CustomerList />
+                {isAuthenticated ? <CustomerList /> : <Redirect to="/login" />}
             </Route>
 
             <Route path="/customers/create">
-                <CustomerForm />
+                {isAuthenticated ? <CustomerForm /> : <Redirect to="/login" />}
             </Route>
 
             <Route path="/customers/:customerId(\d+)/edit">
-                <CustomerEditForm />
+                {isAuthenticated ? <CustomerEditForm /> : <Redirect to="/login" />}
             </Route>
 
             <Route exact path="/employees">
-                <EmployeeList />
+                {isAuthenticated ? <EmployeeList /> : <Redirect to="/login" />}
             </Route>
 
             <Route path="/employees/:employeeId(\d+)/edit">
-                <EmployeeEditForm />
+                {isAuthenticated ? <EmployeeEditForm /> : <Redirect to="/login" />}
             </Route>
 
             <Route path="/employees/create">
-                <EmployeeForm />
+                {isAuthenticated ? <EmployeeForm /> : <Redirect to="/login" />}
             </Route>
         </>
     )

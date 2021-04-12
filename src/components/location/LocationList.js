@@ -3,7 +3,7 @@ import { LocationCard } from './LocationCard';
 import { getAllLocations, deleteLocation } from '../../modules/LocationManager';
 import { useHistory } from 'react-router-dom'
 
-export const LocationList = () => {
+export const LocationList = ({setAuthUser={setAuthUser}, isAuthenticated={isAuthenticated}}) => {
     const [locations, setLocations] = useState([]);
 
     const history = useHistory();
@@ -28,6 +28,7 @@ export const LocationList = () => {
             <section className="section-content">
                 <button type="button"
                     className="btn"
+                    disabled={isAuthenticated ? false : true}
                     onClick={() => { history.push("/locations/create") }}>
                     Add Location
                 </button>
@@ -37,7 +38,8 @@ export const LocationList = () => {
                     <LocationCard
                         key={location.id}
                         location={location}
-                        handleDeleteLocation={handleDeleteLocation} />)}
+                        handleDeleteLocation={handleDeleteLocation}
+                        isAuthenticated={isAuthenticated} />)}
             </div>
         </>
     );

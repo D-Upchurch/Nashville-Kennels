@@ -1,36 +1,14 @@
 {
   "animals": [
     {
-      "id": 2,
-      "name": "Decker",
-      "breed": "German Shepherd",
-      "locationId": 1,
-      "customerId": 2
-    },
-    {
       "id": 3,
       "name": "Esme",
       "breed": "Pitbull",
       "locationId": 2,
       "customerId": 1
-    },
-    {
-      "id": 4,
-      "name": "Jett",
-      "breed": "Husky",
-      "locationId": 1,
-      "customerId": 2
     }
   ],
   "customers": [
-    {
-      "id": 1,
-      "name": "Hannah Hall",
-      "address": "7002 Chestnut Ct",
-      "phoneNumber": 9999999,
-      "email": "hhall@edit.com",
-      "locationId": 1
-    },
     {
       "id": 2,
       "name": "Sherlock Holmes",
@@ -54,39 +32,16 @@
       "phoneNumber": "5558888888",
       "email": "bob@test.com",
       "locationId": 4
-    },
-    {
-      "id": 5,
-      "name": "John Johns",
-      "address": "111 John Street",
-      "phoneNumber": "9797786546",
-      "email": "John@test.com",
-      "locationId": 1
     }
   ],
   "employees": [
     {
       "id": 1,
       "name": "Dakota",
-      "locationId": 2
-    },
-    {
-      "id": 2,
-      "name": "John",
-      "locationId": 1
-    },
-    {
-      "name": "Preston Shotts",
-      "locationId": 1,
-      "id": 3
+      "locationId": 3
     }
   ],
   "locations": [
-    {
-      "id": 1,
-      "name": "Nashville North",
-      "address": "8422 Johnson Pike"
-    },
     {
       "id": 2,
       "name": "Nashville South",
@@ -101,6 +56,11 @@
       "name": "Nashville East",
       "address": "4000 Fake Street",
       "id": 4
+    },
+    {
+      "name": "Nashville North",
+      "address": "100 North Street",
+      "id": 5
     }
   ]
 }

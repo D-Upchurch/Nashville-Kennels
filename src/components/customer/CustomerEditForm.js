@@ -4,6 +4,7 @@ import "./CustomerForm.css"
 import { useHistory, useParams } from 'react-router-dom'
 import { getAllLocations } from '../../modules/LocationManager'
 
+
 export const CustomerEditForm = () => {
   const [customer, setCustomer] = useState({});
   const [locations, setLocations] = useState([]);
