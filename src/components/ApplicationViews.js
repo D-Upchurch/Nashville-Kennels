@@ -17,30 +17,29 @@ import { AnimalEditForm } from './animal/AnimalEditForm';
 import { CustomerEditForm } from './customer/CustomerEditForm';
 import { EmployeeEditForm } from './employee/EmployeeEditForm';
 import { LocationEditForm } from './location/LocationEditForm';
+import { useState } from 'react';
 
-
-export const ApplicationViews = () => {
-    const isAuthenticated = () => sessionStorage.getItem("kennel_customer") !== null;
+export const ApplicationViews = ({isAuthenticated, setAuthUser}) => {
+    
     return (
         <>
             {/* Render the location list when http://localhost:3000/ */}
             <Route exact path="/">
-                <Home />
+                {isAuthenticated ? <Home /> : <Redirect to="/login" />}
+                
             </Route>
 
             <Route path="/login">
-                <Login />
+                <Login setAuthUser={setAuthUser} />
             </Route>
 
             <Route path="/register">
-                <Register />
+                <Register setAuthUser={setAuthUser} />
             </Route>
 
             {/* Render the animal list when http://localhost:3000/animals */}
-            <Route exact path="/animals">
-                {(isAuthenticated()) ?
-                    <AnimalList /> : <Redirect to="/login" />
-                }
+            <Route exact path="/animals">   
+                <AnimalList />
             </Route>
 
             <Route path="/animals/:animalId(\d+)/edit">
