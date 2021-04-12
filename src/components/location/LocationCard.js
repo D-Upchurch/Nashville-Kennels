@@ -3,7 +3,7 @@ import './Location.css'
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 
-export const LocationCard = ({location, handleDeleteLocation}) => {
+export const LocationCard = ({location, handleDeleteLocation, isAuthenticated={isAuthenticated}}) => {
     const history = useHistory();
     return (
         <div className="card">
@@ -14,10 +14,11 @@ export const LocationCard = ({location, handleDeleteLocation}) => {
                     <button>Details</button>
                 </Link>
                 <button type="button"
+                    disabled={isAuthenticated ? false : true}
                     onClick={() => history.push(`/locations/${location.id}/edit`)}>
                     Edit
                 </button>
-                <button type="button" onClick={() => handleDeleteLocation(location.id)}>Remove Location</button>
+                <button type="button" disabled={isAuthenticated ? false : true} onClick={() => handleDeleteLocation(location.id)}>Remove Location</button>
             </div>
         </div>
     )
